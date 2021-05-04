@@ -1,12 +1,19 @@
 import React from 'react'
 
 class OriginalNote extends React.Component{
-    state = {noteTitle:''}
+    state = {title: '', copy: ''}
 
 
     onFormSubmit = (event) => {
         event.preventDefault();
-        this.props.onSubmit(this.state.noteTitle)
+        let newNote = {
+            title: this.state.title,
+            copy: this.state.copy
+        }
+        this.props.onSubmit(newNote)
+        this.setState({title: ''})
+        this.setState({copy: ''})
+
     }
 
     render(){
@@ -16,8 +23,12 @@ class OriginalNote extends React.Component{
             <input 
                 name="title" 
                 type="text" 
-                value={this.state.noteTitle} 
-                onChange={(e) => this.setState({ noteTitle: e.target.value})} 
+                value={this.state.title} 
+                onChange={(e) => this.setState({ title: e.target.value})} 
+                />
+                <textarea 
+                   value={this.state.copy} 
+                   onChange={(e) => this.setState({ copy: e.target.value})} 
                 />
         </form>
         )

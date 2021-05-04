@@ -5,9 +5,9 @@ import Notes from './Notes'
 class App extends React.Component{
     state = {notes: []}
 
-    onTitleSubmit = (title) =>{
+    onTitleSubmit = (payload) =>{
         let notesArray = this.state.notes
-        notesArray.push(title)
+        notesArray.push(payload)
         this.setState({notes: notesArray})
         console.log(this.state.notes)
     }
