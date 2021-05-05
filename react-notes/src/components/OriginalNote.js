@@ -8,12 +8,12 @@ class OriginalNote extends React.Component{
         event.preventDefault();
         let newNote = {
             title: this.state.title,
-            copy: this.state.copy
+            copy: this.state.copy,
+            id: Date.now()
         }
         this.props.onSubmit(newNote)
         this.setState({title: ''})
         this.setState({copy: ''})
-
     }
 
     render(){
@@ -30,6 +30,7 @@ class OriginalNote extends React.Component{
                    value={this.state.copy} 
                    onChange={(e) => this.setState({ copy: e.target.value})} 
                 />
+                <input type="submit" />
         </form>
         )
     }

@@ -3,7 +3,7 @@ import OriginalNote from './OriginalNote'
 import Notes from './Notes'
 
 class App extends React.Component{
-    state = {notes: []}
+    state = {notes: [], deletedNote: null}
 
     onTitleSubmit = (payload) =>{
         let notesArray = this.state.notes
@@ -12,11 +12,23 @@ class App extends React.Component{
         console.log(this.state.notes)
     }
 
+    // handleNoteDelete = (note) => {
+    //     var noteId = note.id;
+    //     var newNotes = this.state.notes.filter(function(note) {
+    //       return note.id !== noteId;
+    //     });
+    //     this.setState({ notes: newNotes });
+    //   };
+
+    deleteNote = (payload) =>{
+        console.log(payload)
+    }
+
     render(){
         return (
             <div>
                 <OriginalNote onSubmit={this.onTitleSubmit}/>
-                <Notes notesProp={this.state.notes}/>
+                <Notes deleteNote={this.deleteNote} notesProp={this.state.notes}/>
             </div>
         )
     }
