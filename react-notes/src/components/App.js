@@ -3,13 +3,12 @@ import OriginalNote from './OriginalNote'
 import Notes from './Notes'
 
 class App extends React.Component{
-    state = {notes: [], deletedNote: null}
+    state = {notes: []}
 
     onTitleSubmit = (payload) =>{
         let notesArray = this.state.notes
         notesArray.push(payload)
         this.setState({notes: notesArray})
-        console.log(this.state.notes)
     }
 
     // handleNoteDelete = (note) => {
@@ -21,7 +20,12 @@ class App extends React.Component{
     //   };
 
     deleteNote = (payload) =>{
-        console.log(payload)
+        var noteId = payload.id;
+        var newNotes = this.state.notes.filter(function(payload) {
+            return payload.id !== noteId;
+          });
+          this.setState({ notes: newNotes });
+          console.log(this.state.notes)
     }
 
     render(){
