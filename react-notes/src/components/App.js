@@ -7,26 +7,37 @@ class App extends React.Component{
 
     onTitleSubmit = (payload) =>{
         let notesArray = this.state.notes
-        notesArray.push(payload)
+        notesArray.unshift(payload)
         this.setState({notes: notesArray})
     }
 
-    // handleNoteDelete = (note) => {
-    //     var noteId = note.id;
-    //     var newNotes = this.state.notes.filter(function(note) {
-    //       return note.id !== noteId;
-    //     });
-    //     this.setState({ notes: newNotes });
-    //   };
+    _updateLocalStorage = () => {
+        var notes = JSON.stringify(this.state.notes);
+        localStorage.setItem('react-notes', notes);
+      };
 
     deleteNote = (payload) =>{
-        var noteId = payload.id;
-        var newNotes = this.state.notes.filter(function(payload) {
-            return payload.id !== noteId;
+        let noteId = payload.id;
+        const newNotes = this.state.notes.filter(function(note) {
+            if(note.id !== noteId){
+                return note
+            }
+            return console.log('deleted')
           });
           this.setState({ notes: newNotes });
-          console.log(this.state.notes)
+          console.log(newNotes)
     }
+
+    componentDidMount() {
+        var localNotes = JSON.parse(localStorage.getItem('react-notes'));
+        if (localNotes) {
+          this.setState({ notes: localNotes });
+        }
+      }
+
+    componentDidUpdate() {
+        this._updateLocalStorage();
+    } 
 
     render(){
         return (
