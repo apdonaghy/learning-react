@@ -1,6 +1,9 @@
 import './Notes.css'
 import React from 'react'
 
+// Todos: start styling using scss and also adding a feature to change the list color and an
+// option to be able to create lists within the notes
+
 const Notes = ({ notesProp, deleteNote }) =>{
     const notesList = notesProp.map((note,index) => {
         return(
@@ -16,5 +19,4 @@ const Notes = ({ notesProp, deleteNote }) =>{
     )
      
 }
-
 export default Notes
