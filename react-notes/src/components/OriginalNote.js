@@ -14,6 +14,7 @@ class OriginalNote extends React.Component{
         this.props.onSubmit(newNote)
         this.setState({title: ''})
         this.setState({copy: ''})
+        this.y.focus()
     }
 
     render(){
@@ -21,6 +22,7 @@ class OriginalNote extends React.Component{
         <form onSubmit={this.onFormSubmit}>
             <label htmlFor="title">Note Title</label>
             <input 
+                ref={x => this.y = x }
                 name="title" 
                 type="text" 
                 value={this.state.title} 
