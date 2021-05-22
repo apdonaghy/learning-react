@@ -5,13 +5,25 @@ import Todo from './Todo'
 // option to be able to create lists within the notes
 
 const Notes = ({ notesProp, deleteNote }) =>{
+
+        onTodoSubmit = (payload) =>{
+    //   let notesArray = this.state.notes
+    //   for(let note in notesArray){
+    //       if (note.id = payload.id){
+    //             console.log(note.id)
+
+    //       }
+    //   }
+            console.log(payload)
+    }
+
     const notesList = notesProp.map((note,index) => {
         return(
         <div key={index} >
             <h1>{note.title}</h1>
             <p>{note.copy}</p>
             <span onClick={() => deleteNote(note)} className="delete">Delete</span>
-            <Todo />
+            <Todo onTodoSubmit={this.onTodoSubmit} />
         </div> 
         )
     });

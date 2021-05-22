@@ -5,14 +5,18 @@ class Todo extends React.Component{
 
     onFormSubmit = (event) => {
         event.preventDefault()
-        console.log("submit")
+       
+        let todo = this.state.todoItem
+        this.props.onTodoSubmit(todo)
      } 
 
      render(){
         return(
         <div>
             <form onSubmit={this.onFormSubmit}>
-            <input type="text"/>
+            <input 
+             onChange={(e) => this.setState({ todoItem: e.target.value})} 
+            type="text"/>
             </form>
         </div>
         )

@@ -3,12 +3,12 @@ import React from 'react'
 class OriginalNote extends React.Component{
     state = {title: '', copy: ''}
 
-
     onFormSubmit = (event) => {
         event.preventDefault();
         let newNote = {
             title: this.state.title,
             copy: this.state.copy,
+            todos: [],
             id: Date.now()
         }
         this.props.onSubmit(newNote)
