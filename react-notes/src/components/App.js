@@ -11,6 +11,15 @@ class App extends React.Component{
         this.setState({notes: notesArray})
     }
 
+    onListItemSubmit = (payload) =>{
+      let notesArray = this.state.notes
+      for(let note in notesArray){
+          if (note.id = payload.id){
+                console.log('test')
+          }
+      }
+    }
+
     _updateLocalStorage = () => {
         var notes = JSON.stringify(this.state.notes);
         localStorage.setItem('react-notes', notes);
