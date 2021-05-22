@@ -1,35 +1,36 @@
 import './Notes.css'
 import React from 'react'
+import Todos from './Todos'
 import Todo from './Todo'
 // Todos: start styling using scss and also adding a feature to change the list color and an
 // option to be able to create lists within the notes
 
-const Notes = ({ notesProp, deleteNote }) =>{
+// const Notes = ({ notesProp, deleteNote }) =>{
+    class Notes extends React.Component{
+    // state = {todos:[]}
 
-        onTodoSubmit = (payload) =>{
-    //   let notesArray = this.state.notes
-    //   for(let note in notesArray){
-    //       if (note.id = payload.id){
-    //             console.log(note.id)
-
-    //       }
-    //   }
-            console.log(payload)
+    onTodoSubmit = (payload) =>{
+ 
+    this.props.addTodo(payload)
+          
     }
 
-    const notesList = notesProp.map((note,index) => {
+    render(){
+    const notesList = this.props.notesProp.map((note,index) => {
         return(
         <div key={index} >
             <h1>{note.title}</h1>
             <p>{note.copy}</p>
-            <span onClick={() => deleteNote(note)} className="delete">Delete</span>
-            <Todo onTodoSubmit={this.onTodoSubmit} />
+            <span onClick={() => this.props.deleteNote(note)} className="delete">Delete</span>
+            <Todos todosProp={note.todos}/>
+            <Todo idProp={note.id} onTodoSubmit={this.onTodoSubmit}/>
         </div> 
         )
     });
+    
     return(
         <div>{notesList}</div>
     )
-     
+    }
 }
 export default Notes

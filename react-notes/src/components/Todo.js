@@ -5,9 +5,13 @@ class Todo extends React.Component{
 
     onFormSubmit = (event) => {
         event.preventDefault()
-       
-        let todo = this.state.todoItem
-        this.props.onTodoSubmit(todo)
+
+        let todoItem = {
+            todo: this.state.todoItem,
+            id:this.props.idProp
+        }
+        this.props.onTodoSubmit(todoItem)
+        this.setState({todoItem: ''})
      } 
 
      render(){
@@ -16,6 +20,7 @@ class Todo extends React.Component{
             <form onSubmit={this.onFormSubmit}>
             <input 
              onChange={(e) => this.setState({ todoItem: e.target.value})} 
+             value={this.state.todoItem} 
             type="text"/>
             </form>
         </div>
