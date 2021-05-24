@@ -10,9 +10,11 @@ import Todo from './Todo'
     // state = {todos:[]}
 
     onTodoSubmit = (payload) =>{
- 
-    this.props.addTodo(payload)
-          
+        this.props.addTodo(payload)   
+    }
+
+    onDeleteTodo =(payload) =>{
+        this.props.deleteTodo(payload)
     }
 
     render(){
@@ -22,7 +24,7 @@ import Todo from './Todo'
             <h1>{note.title}</h1>
             <p>{note.copy}</p>
             <span onClick={() => this.props.deleteNote(note)} className="delete">Delete</span>
-            <Todos todosProp={note.todos}/>
+            <Todos todosProp={note.todos} onDelete={this.onDeleteTodo}/>
             <Todo idProp={note.id} onTodoSubmit={this.onTodoSubmit}/>
         </div> 
         )

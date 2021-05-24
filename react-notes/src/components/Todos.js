@@ -1,11 +1,12 @@
 import React from 'react'
 
-const Todos = ({ todosProp }) =>{
+const Todos = ({ todosProp, onDelete }) =>{
 
     const todoList = todosProp.map((todo,index) => {
         return(
         <div key={index} >
-            <p>{todo}</p>
+            <p>{todo.todo}</p>
+            <span onClick={() => onDelete(todo)}>x</span>
         </div> 
         )
     });

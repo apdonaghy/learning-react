@@ -21,17 +21,48 @@ class App extends React.Component{
     let notesArray = this.state.notes
       for(let note of notesArray){
           if (note.id === payload.id){
-                note.todos.push(payload.todo)
+                note.todos.push(payload)
           }
       }
 
     this.setState({notes: notesArray})
-
-
         console.log(this.state.notes)
     } 
 
-    deleteNote = (payload) =>{
+    deleteTodo = (payload) => {
+        // console.log(payload)
+       
+
+        // const newNotes = this.state.notes.filter(function(note) {
+        //     if(note.id === payload.id){
+        //         for(let todo of note.todos){
+        //             if( todo.todoId !== payload.todoId){
+        //                 return todo
+        //             }
+        //         }
+        //     }
+        //     return console.log('deleted')
+        //   });
+        //   this.setState({ notes: newNotes });
+        //   console.log(newNotes)
+
+            let revisedNotes = this.state.notes
+            for(let note of revisedNotes){
+            if(note.id === payload.id){
+                for(let todo of note.todos){
+                    if( todo.todoId === payload.todoId){
+                        note.todos.splice(note.todos.indexOf(todo), 1)
+                    }
+                }
+                
+            }
+          }
+
+          this.setState({ notes: revisedNotes });
+     
+    }
+
+    deleteNote = (payload) => {
         let noteId = payload.id;
         const newNotes = this.state.notes.filter(function(note) {
             if(note.id !== noteId){
@@ -58,7 +89,7 @@ class App extends React.Component{
         return (
             <div>
                 <OriginalNote onSubmit={this.onTitleSubmit}/>
-                <Notes addTodo={this.addTodo} deleteNote={this.deleteNote} notesProp={this.state.notes}/>
+                <Notes deleteTodo={this.deleteTodo} addTodo={this.addTodo} deleteNote={this.deleteNote} notesProp={this.state.notes}/>
             </div>
         )
     }
