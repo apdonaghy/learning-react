@@ -87,9 +87,12 @@ class App extends React.Component{
 
     render(){
         return (
-            <div>
+            <div className="bkgrnd">
+                <div className="container">
+                <h1>notes.</h1>
                 <OriginalNote onSubmit={this.onTitleSubmit}/>
                 <Notes deleteTodo={this.deleteTodo} addTodo={this.addTodo} deleteNote={this.deleteNote} notesProp={this.state.notes}/>
+                </div>
             </div>
         )
     }

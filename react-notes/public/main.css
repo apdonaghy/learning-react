@@ -1,0 +1,28 @@
+*{
+    padding:0;
+    margin:0;
+    box-sizing: border-box;
+}
+
+body{
+    background-color:#f1f2f8;
+    font-family: 'Source Sans Pro', sans-serif;
+}
+.bkgrnd{
+    background-image: url(./shape.svg);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    height:100vh;
+}
+
+h1{
+    font-family: 'DM Serif Display', serif;
+    font-weight: 400;
+    font-size:2.5em;
+    color: #5358b6;
+}
+
+.container{
+    width:90%;
+    margin: 0 auto;
+}

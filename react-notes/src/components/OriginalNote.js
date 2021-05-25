@@ -1,4 +1,6 @@
 import React from 'react'
+import './originalNote.css'
+import ContentEditable from 'react-contenteditable'
 
 class OriginalNote extends React.Component{
     state = {title: '', copy: ''}
@@ -19,17 +21,18 @@ class OriginalNote extends React.Component{
 
     render(){
         return(
-        <form onSubmit={this.onFormSubmit}>
-            <label htmlFor="title">Note Title</label>
+        <form className="newNote" onSubmit={this.onFormSubmit}>
+         
             <input 
                 ref={x => this.y = x }
                 name="title" 
                 type="text" 
+                placeholder="Title"
                 value={this.state.title} 
                 onChange={(e) => this.setState({ title: e.target.value})} 
                 />
-                <textarea 
-                   value={this.state.copy} 
+                <ContentEditable
+                   html={this.state.copy} 
                    onChange={(e) => this.setState({ copy: e.target.value})} 
                 />
                 <input type="submit" />
