@@ -1,20 +1,64 @@
 .newNote{
     width:50%;
-    background-color: #f3f4fa;
+    background-color: #f8f8fc;
     border-radius: 15px 15px 15px 0px;
-    box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.05);
+    box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.07);
     padding:20px;
+    min-height:10em;
+    margin-left:10px;
+    margin-top:2em;
+    position:relative;
+  
 }
 
-input{
+::placeholder{
+    color:#8b8ba0;
+}
+
+.titleInput{
+    /* font-family: 'DM Serif Display', serif; */
     background: transparent;
     border:none;
     display:block;
-    font-size: 1.5em;
+    font-size: 2em;
     width:100%;
+    outline:none;
+    color:#444457;
+    margin-bottom:.25em;
 }
 
-textarea{
+
+.firstText{
     background:transparent;
     border:none;
+    outline: none;
+    font-size:1.5em;
+    outline:none;
+    color:#444457;
+}
+
+.firstText[contenteditable]:empty::before {
+    content: "Note";
+    color: #8b8ba0;
+  }
+
+  .addBtn{
+    font-family: arial;
+    font-weight: 800;
+    cursor:pointer;
+    color:white;
+    background:#5358b6;
+    font-size:2.5em;
+    padding:1px 12px;
+    border-radius: 5px 5px 5px 0px;
+    position:absolute;
+    right:0;
+    bottom:0;
+    margin-right:-20px;
+    margin-bottom:15px;
+}
+
+.addBtn:hover{
+    transition: .2s;
+    transform:scale(1.1);
 }

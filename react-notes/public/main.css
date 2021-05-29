@@ -4,8 +4,13 @@
     box-sizing: border-box;
 }
 
+:root {
+    --main-text: #444457;
+    --altColor: #5358b6;
+  }
+
 body{
-    background-color:#f1f2f8;
+    background-color:#f0f1f7;
     font-family: 'Source Sans Pro', sans-serif;
 }
 .bkgrnd{
@@ -18,11 +23,13 @@ body{
 h1{
     font-family: 'DM Serif Display', serif;
     font-weight: 400;
-    font-size:2.5em;
-    color: #5358b6;
+    font-size:3em;
+    color:var(--altColor);
+    margin-left:10px;
 }
 
 .container{
     width:90%;
     margin: 0 auto;
 }
+

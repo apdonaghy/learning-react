@@ -1,4 +1,29 @@
 .delete{
     cursor:pointer;
 }
+.notesDiv{
+    display:flex;
+    flex-wrap: wrap;
+}
 
+.mainNote{
+    background-color: #f8f8fc;
+    border-radius: 15px 15px 15px 0px;
+    box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.07);
+    width:22%;
+    margin:10px;
+    padding:10px;
+}
+
+.noteTitle{
+    font-family: 'DM Serif Display', serif;
+    font-weight: 400;
+    color:var(--altColor);
+    font-size:1.45em;
+}
+
+.noteCopy{
+
+    color:var(--main-text);
+    font-size:.95em;
+}

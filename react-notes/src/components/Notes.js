@@ -26,23 +26,25 @@ import ContentEditable from 'react-contenteditable'
     render(){
     const notesList = this.props.notesProp.map(note => {
         return(
-        <div key={note.id}>
-            <h2>{note.title}</h2>
+        <div className="mainNote" key={note.id}>
+            <h2 className="noteTitle">{note.title}</h2>
             <ContentEditable
+                className="noteCopy"
                 disabled={false} 
                 html={note.copy}
                 onChange={this.handleReviseNote} 
             />
             <span onClick={() => this.props.deleteNote(note)} className="delete">Delete</span>
-            
-            <Todos todosProp={note.todos} onDelete={this.onDeleteTodo}/>
+           
             <Todo idProp={note.id} onTodoSubmit={this.onTodoSubmit}/>
+            <Todos todosProp={note.todos} onDelete={this.onDeleteTodo}/>
+            
         </div> 
         )
     });
     
     return(
-        <div>{notesList}</div>
+        <div className="notesDiv">{notesList}</div>
     )
     }
 }

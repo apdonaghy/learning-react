@@ -1,3 +1,4 @@
+import './app.css'
 import React from 'react'
 import OriginalNote from './OriginalNote'
 import Notes from './Notes'
@@ -21,7 +22,7 @@ class App extends React.Component{
     let notesArray = this.state.notes
       for(let note of notesArray){
           if (note.id === payload.id){
-                note.todos.push(payload)
+                note.todos.unshift(payload)
           }
       }
 
@@ -30,21 +31,6 @@ class App extends React.Component{
     } 
 
     deleteTodo = (payload) => {
-        // console.log(payload)
-       
-
-        // const newNotes = this.state.notes.filter(function(note) {
-        //     if(note.id === payload.id){
-        //         for(let todo of note.todos){
-        //             if( todo.todoId !== payload.todoId){
-        //                 return todo
-        //             }
-        //         }
-        //     }
-        //     return console.log('deleted')
-        //   });
-        //   this.setState({ notes: newNotes });
-        //   console.log(newNotes)
 
             let revisedNotes = this.state.notes
             for(let note of revisedNotes){

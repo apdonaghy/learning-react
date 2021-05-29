@@ -6,6 +6,8 @@ class OriginalNote extends React.Component{
     state = {title: '', copy: ''}
 
     onFormSubmit = (event) => {
+     if(event.key !== 'Tab'){
+        if(this.state.title !== ''){
         event.preventDefault();
         let newNote = {
             title: this.state.title,
@@ -18,12 +20,16 @@ class OriginalNote extends React.Component{
         this.setState({copy: ''})
         this.y.focus()
     }
+}
+}
 
     render(){
         return(
-        <form className="newNote" onSubmit={this.onFormSubmit}>
+        <form className="newNote" >
          
             <input 
+                className="titleInput"
+                autoComplete="off"
                 ref={x => this.y = x }
                 name="title" 
                 type="text" 
@@ -32,10 +38,11 @@ class OriginalNote extends React.Component{
                 onChange={(e) => this.setState({ title: e.target.value})} 
                 />
                 <ContentEditable
+                   className="firstText"
                    html={this.state.copy} 
                    onChange={(e) => this.setState({ copy: e.target.value})} 
                 />
-                <input type="submit" />
+                <span className="addBtn" tabIndex="0" onKeyDown={this.onFormSubmit} onClick={this.onFormSubmit}>+</span>
         </form>
         )
     }
