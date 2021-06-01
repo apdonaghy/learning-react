@@ -12,6 +12,11 @@ class App extends React.Component{
         this.setState({notes: notesArray})
     }
 
+    reviseNote = (payload) => {
+        console.log(payload)
+     
+    }
+
     _updateLocalStorage = () => {
         var notes = JSON.stringify(this.state.notes);
         localStorage.setItem('react-notes', notes);
@@ -77,7 +82,7 @@ class App extends React.Component{
                 <div className="container">
                 <h1>notes.</h1>
                 <OriginalNote onSubmit={this.onTitleSubmit}/>
-                <Notes deleteTodo={this.deleteTodo} addTodo={this.addTodo} deleteNote={this.deleteNote} notesProp={this.state.notes}/>
+                <Notes deleteTodo={this.deleteTodo} reviseNote={this.reviseNote} addTodo={this.addTodo} deleteNote={this.deleteNote} notesProp={this.state.notes}/>
                 </div>
             </div>
         )

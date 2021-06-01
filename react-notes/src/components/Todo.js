@@ -1,3 +1,4 @@
+import './todo.css'
 import React from 'react'
 
 class Todo extends React.Component{
@@ -20,8 +21,10 @@ class Todo extends React.Component{
         <div>
             <form onSubmit={this.onFormSubmit}>
             <input 
+             className="noteInput"
              onChange={(e) => this.setState({ todoItem: e.target.value})} 
              value={this.state.todoItem} 
+             placeholder="+"
              type="text"/>
             </form>
         </div>

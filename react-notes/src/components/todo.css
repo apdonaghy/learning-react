@@ -1,0 +1,7 @@
+.noteInput{
+    background-color: rgba(0, 0, 0, 0.03);
+    width:100%;
+    border:none;
+    outline:none;
+    padding:5px;
+}
