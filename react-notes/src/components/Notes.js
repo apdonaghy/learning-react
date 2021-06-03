@@ -10,14 +10,15 @@ import ContentEditable from 'react-contenteditable'
     class Notes extends React.Component{
         state = {copy: ''}
     
-    handleReviseNote = (id) => {
+    handleReviseNote = (note) => {
 
         let revisedNote = {
             copy: this.state.copy,
-            id: id
+            id: note.id
         }
         this.props.reviseNote(revisedNote)
         // this.setState({copy: ''})
+    //     console.log(note)
     }
 
     onTodoSubmit = (payload) =>{
@@ -38,7 +39,7 @@ import ContentEditable from 'react-contenteditable'
                 disabled={false} 
                 html={note.copy}
                 onChange={(e) => this.setState({ copy: e.target.value})} 
-                keyup={this.handleReviseNote(note.id)} 
+                onKeyUp={() => this.handleReviseNote(note)} 
             />
             <span onClick={() => this.props.deleteNote(note)} className="delete">Delete</span>
            

@@ -13,7 +13,19 @@ class App extends React.Component{
     }
 
     reviseNote = (payload) => {
-        console.log(payload)
+        // console.log(payload)
+
+        let notesArray = this.state.notes
+        for(let note of notesArray){
+            if (note.id === payload.id){
+                 note.copy = payload.copy
+            }
+        }
+
+        // console.log(payload)
+  
+      this.setState({notes: notesArray})
+    //       console.log(this.state.notes)
      
     }
 
