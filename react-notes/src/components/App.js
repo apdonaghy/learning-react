@@ -26,7 +26,6 @@ class App extends React.Component{
   
       this.setState({notes: notesArray})
     //       console.log(this.state.notes)
-     
     }
 
     _updateLocalStorage = () => {

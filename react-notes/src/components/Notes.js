@@ -8,12 +8,12 @@ import ContentEditable from 'react-contenteditable'
 
 // const Notes = ({ notesProp, deleteNote }) =>{
     class Notes extends React.Component{
-        state = {copy: ''}
+        // state = {copy: ''}
     
-    handleReviseNote = (note) => {
+    handleReviseNote = (targetVal, note) => {
 
         let revisedNote = {
-            copy: this.state.copy,
+            copy: targetVal,
             id: note.id
         }
         this.props.reviseNote(revisedNote)
@@ -38,8 +38,9 @@ import ContentEditable from 'react-contenteditable'
                 className="noteCopy"
                 disabled={false} 
                 html={note.copy}
-                onChange={(e) => this.setState({ copy: e.target.value})} 
-                onKeyUp={() => this.handleReviseNote(note)} 
+                onChange={ e => this.handleReviseNote(e.target.value, note)} 
+                // onChange={(e) => this.setState({ copy: e.target.value})} 
+                // onKeyUp={() => this.handleReviseNote(note)} 
             />
             <span onClick={() => this.props.deleteNote(note)} className="delete">Delete</span>
            
